@@ -3,7 +3,6 @@
 # variables
 BUILD_FOLDER="public"
 TARGET_BRANCH="master"
-TARGET_FOLDER="deploy"
 GITHUB_REPO="@github.com/weihanchen/weihanchen.github.io.git"
 FULL_REPO="https://${GITHUB_TOKEN}${GITHUB_REPO}"
 
