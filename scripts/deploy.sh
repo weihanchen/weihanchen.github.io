@@ -7,6 +7,7 @@ TARGET_FOLDER="deploy"
 GITHUB_REPO="@github.com/weihanchen/weihanchen.github.io.git"
 FULL_REPO="https://${GITHUB_TOKEN}${GITHUB_REPO}"
 
+
 # config/deploy
 cd $BUILD_FOLDER
 git init
