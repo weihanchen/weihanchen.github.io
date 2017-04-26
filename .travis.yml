@@ -12,10 +12,10 @@ after_success:
   - cd $BUILD_FOLDER
   - git config --global user.email "${GITHUB_MAIL}"
   - git config --global user.name "${GITHUB_USER}"
-  - git add --all .
+  - git add .
   - MESSAGE=`date +\ %Y-%m-%d\ %H:%M:%S`
   - git commit -m "Site updated:${MESSAGE}"
-  - git push --force $FULL_REPO $TARGET_BRANCH
+  - git push $FULL_REPO $TARGET_BRANCH
 branches:
   only:
     - hexo
