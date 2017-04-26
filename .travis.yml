@@ -3,16 +3,16 @@ node_js:
   - 6.0.0
 before_script:
   - npm install
+  - git clone --branch $TARGET_BRANCH "https://${GITHUB_TOKEN}${GITHUB_REPO}" $BUILD_FOLDER
 script:
   - hexo cl
   - hexo g
 after_success:
   - cp README.md $BUILD_FOLDER
   - cd $BUILD_FOLDER
-  - git init
   - git config --global user.email "${GITHUB_MAIL}"
   - git config --global user.name "${GITHUB_USER}"
-  - git add .
+  - git add --all .
   - MESSAGE=`date +\ %Y-%m-%d\ %H:%M:%S`
   - git commit -m "Site updated:${MESSAGE}"
   - git push --force "https://${GITHUB_TOKEN}${GITHUB_REPO}" $TARGET_BRANCH:$TARGET_BRANCH
