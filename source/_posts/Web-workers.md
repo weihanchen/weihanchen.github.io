@@ -18,7 +18,6 @@ javascript主要功能是與user操作頁面互動及操作dom，試想若使用
 
 {% asset_img event_loop.png Event loop %}
 
-
 上圖的執行機制
 >1. 主程序會先從stack中執行function
 >2. 執行過程中遇到setTimeout這類的非同步API呼叫，會透過事件委託的機制掛一個callback到setTimeout之類的Web API，執行完畢後會將該callback傳入上圖的callback queue等待。
