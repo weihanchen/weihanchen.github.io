@@ -43,14 +43,16 @@ Web Workers依照用途又分為Dedicated workers與Shared workers
 - polling web services
 
 ## Work中常用的方法
-- `postMessage(data)`
-   >子線程與主線程之間相互溝通的方法，傳遞的data為任意值
-- `onmessage`
-   >監聽線程之間message的傳遞，當線程之間觸發`postMessage`時，能夠藉由`onmessage`順利接收傳遞的資料。
+
+- `postMessage(data)` 
+
+    > 子線程與主線程之間相互溝通的方法，傳遞的data為任意值
+- `onmessage` 
+    > 監聽線程之間message的傳遞，當線程之間觸發postMessage時，能夠藉由onmessage順利接收傳遞的資料。
 - `onerror`
-   >常用於debug
-- `terminate()`
-   >主線程中終止worker任務的API，一旦終止後不能再次啟用，只能重新創建
+    > 常用於debug
+- `terminate()` 
+    > 主線程中終止worker任務的API，一旦終止後不能再次啟用，只能重新創建
 
 ## 使用上的限制
 Web Workers因為安全性問題所以使用上需要有一些使用上的限制:
