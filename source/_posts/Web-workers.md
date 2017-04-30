@@ -1,7 +1,7 @@
 ---
+categories: javascript
 title: Web workers
 date: 2017-04-26 21:00:31
-tags:
 ---
 
 Web Workers主要提供簡單的API讓網頁在背景執行緒中執行程式而不干擾使用者的操作

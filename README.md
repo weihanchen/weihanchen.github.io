@@ -1,2 +1,5 @@
-# weihanchen.github.io
-This is my blog https://weihanchen.github.io
+# Blog
+
+## Step
+- install dependencies with `npm install`
+- run `npm start` on 4000 `port`

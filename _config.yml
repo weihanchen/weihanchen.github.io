@@ -92,3 +92,8 @@ feed:
   limit: 20
   hub:
 
+menu:
+  home: /
+  categories: /categories
+  archives: /archives
+  tags: /tags
