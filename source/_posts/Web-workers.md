@@ -1,5 +1,5 @@
 ---
-categories: javascript
+categories: web
 title: Web workers
 date: 2017-04-26 21:00:31
 ---

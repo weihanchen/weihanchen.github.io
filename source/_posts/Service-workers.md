@@ -1,6 +1,6 @@
 ---
-categories: javascript
-title: Service-workers
+categories: web
+title: Service workers
 date: 2017-04-30 23:05:40
 tags:
 ---

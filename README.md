@@ -6,4 +6,4 @@
 - build files `npm run build`
 
 ## Commands
-- create new post `hexo new [title]`
+- create new post `npm run new [title]`
