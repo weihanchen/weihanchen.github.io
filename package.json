@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "hexo g",
+    "clean": "hexo clean",
     "start": "hexo s",
     "new": "hexo new"
   },

@@ -43,3 +43,6 @@ db.json
 node_modules/
 public/
 .deploy*/
+
+yarn.lock
+.yarnclean
