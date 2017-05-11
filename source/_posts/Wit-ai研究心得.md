@@ -3,6 +3,7 @@ categories: chatbot
 title: Wit.ai研究心得
 date: 2017-05-05 12:12:30
 tags:
+thumbnail: /img/random/material-1.png
 ---
 
 以下紀錄了實際操作[Wit.ai](https://wit.ai/)相關心得及操作，並延伸至nodejs api應用面，註冊及基本使用方式可以參考至[https://wit.ai/docs/quickstart](https://wit.ai/docs/quickstart)，以下針對重點紀錄：
@@ -24,7 +25,7 @@ tags:
 - User says: 這裡表示User可能會說的話並設定Entity來標示使用者有哪些關鍵字、哪段文字代表什麼意義。
 - Bot sends: bot回應的訊息內容，其中可以User輸入的關鍵字回應，或者透過呼叫外部API的方式來完成User的需求。
 - Bot executes: 讓我們定義Bot要執行的function，這裡僅定義名稱，實作則透過API，以下會使用Nodejs當範例。
-- Jump: 當滿足了某些條件下，可以跳至某個Bot executes或Bot sends
+- Jump: 當滿足了某些條件下，可以跳至某個Bot executes或Bot sends。
 
 #### 實際定義一個簡單回覆訊息的User story
 ![Story1](story1.gif)
@@ -35,14 +36,88 @@ tags:
 
 ![Executes](executes1.gif)
 
-設定完成後記得訓練一次，讓機器人知道要以剛剛設定的`scheduleResult`當作回覆，讓機器人記住這個context
+設定完成後記得訓練一次，讓機器人知道要以剛剛設定的`scheduleResult`當作回覆，讓機器人記住這個context。
 
 ![Context key](context_key.gif)
 
 ## 使用Nodejs API來實作executes function
-流程中我們會記錄使用者輸入的日期、地點、運動種類，因此我們需要針對這些操作分別設計`Bot executes`
+流程中我們會記錄使用者輸入的日期、地點、運動種類，因此我們需要針對這些操作分別設計`Bot executes`。
 ![Executes full](executes_full.gif)
 
-首先我們先從`Settings` > `API Details` > `Server Access Token` 取得token
+#### 首先我們先從`Settings` > `API Details` > `Server Access Token` 取得token
 
-Pending...
+#### 接著我們直接建構一個簡單的專案來實作`Bot executes`相關的function
+主要依賴套件為`node-wit`, `npm install node-wit`
+
+#### basic.js
+引入相關套件及定義Bot actions及token的取得方式(這邊先由終端機命令參數中獲取之後可以改為環境變數讀取來實現)。
+
+這裡主要簡單的示範如何辨識user的關鍵字進行相對應的fuction, 並非完整的一個實際案例, 藉由入門可以設計出更多的story情境及後端API讓其他媒體串接(網站、fb、line...)。
+
+```javascript
+'use strict';
+
+const Wit = require('node-wit').Wit;
+const interactive = require('node-wit').interactive;
+let date,
+    locate,
+    sport
+const accessToken = (() => {
+   if (process.argv.length !== 3) {
+      console.log('usage: node basic.js <wit-access-token>');
+      process.exit(1);
+   }
+   return process.argv[2];
+})();
+
+const firstEntityValue = (entities, entity) => {
+   const val = entities && entities[entity] &&
+      Array.isArray(entities[entity]) &&
+      entities[entity].length > 0 &&
+      entities[entity][0].value
+      ;
+   if (!val) {
+      return null;
+   }
+   return typeof val === 'object' ? val.value : val;
+};
+
+const actions = {
+   send(request, response) {
+      const { sessionId, context, entities } = request;
+      const { text, quickreplies } = response;
+      return new Promise((resolve) => {
+         console.log('sending...', JSON.stringify(response));
+         return resolve();
+      })
+   },
+   setDate({ context, entities}) {
+      date = firstEntityValue(entities, 'date');
+      console.log(date);
+   },
+   setLocate({ context, entities}) {
+      locate = firstEntityValue(entities, 'locate');
+      console.log(locate);
+   },
+   setSport({ context, entities}) {
+      sport = firstEntityValue(entities, 'sports');
+      console.log(sport);
+   },
+   getSchedule({ context }) {
+      return new Promise((resolve, reject) => {
+         context.scheduleResult = `您的行程安排如下\n日期: ${date}\n地點: ${locate}\n${sport}`; // we should call a real API here - See more at: http://blog.techbridge.cc/2016/07/02/ChatBot-with-Wit/#sthash.oPdsTDNV.dpuf
+         return resolve(context);
+      });
+   }
+};
+```
+
+初始化與互動的設置
+
+```javascript
+const client = new Wit({ accessToken, actions });
+interactive(client);
+```
+
+#### 最後實際來跑一次範例
+![Demo](demo.gif)
