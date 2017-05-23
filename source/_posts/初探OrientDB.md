@@ -5,23 +5,18 @@ date: 2017-05-22 11:43:35
 tags: 
 ---
 
+初學OrientDB的一些心得記錄，並以實例來理解基礎操作
 
 ## 關鍵要素
-- DATA_ENTITY - Document、Vertex(圖表模式下又稱為node,又可以解釋為資料的容器)。
+- DATA_ENTITY - Document、Vertex(與Neo4j的Node一樣)。
 - RELATIONSHOP - edge(連接兩個node之間的關係)。
 - DATA_ATTRIBUTE - properties(資料屬性)。
 
 ## 名詞解釋
-- Documents
-   - 包含資料屬性
-   - 具有獨特的id
-   - 可以連結到其他文本
-   - 可以包含sub-documents
 - Properties
    - 具有資料型態(Boolean、Integer)
    - 可以被indexed
 - Vertex
-   - 類似於document
    - 具備連結關係: `incoming edges`、`outgoing edges`
    - 也被稱為`Nodes`
    - 可以想像為圖的圓圈
@@ -68,10 +63,10 @@ tags:
 ### 網頁UI編輯模式
 進入`localhost:2480`，依據主機ip與啟動port號不同自行修改。
 
-### 創建db
+### 創建db 
 ![Create db](create_db.gif)
 
-### 創建class
+### 創建class 
 其中`WorkAt`繼承自`edge`用來連結`Company`及`Person`
 Command
 ```sql
@@ -145,6 +140,10 @@ connect remote:localhost/databases/Demo root hello
 ```
 
 ### 其餘commands類似於Web UI操作
+
+## 進階操作
+- [Transactions](http://orientdb.com/docs/last/OrientJS-Transactions.html)
+- [Server Side Functions](https://orientdb.com/docs/2.2/Functions-Server.html)
 
 ## 參考資料
 - [udemy-orientdb](https://www.udemy.com/orientdb-getting-started)

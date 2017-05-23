@@ -44,6 +44,11 @@ insert into Model (name, cityMPG, highwayMPG, modelYear) values ("car1", 10, 20,
 insert into Person content {"firstName": "A", "lastName": "B", "info": {"hair": "black", "eyes": "blue"}}
 ```
 
+藉由建立vertex方式
+```sql
+create vertex Person content{firstName: "wang", lastName: "pine"}
+```
+
 ## 更新
 upsert: 當查詢條件存在時則更新，否則新增
 ```sql

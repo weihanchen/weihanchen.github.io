@@ -23,7 +23,7 @@ DELETE vertex Person
 ### extends
 >1. 建立`Lead`繼承至`V`
 ```sql
-create Lead class extends V
+create class Lead extends V
 ```
 >2. 為`V`建立一個`property`
 ```sql
@@ -34,6 +34,7 @@ create property V.createAt date
 ```sh
 info class Lead
 ```
+> UI模式
 ![Lead Info UI](lead_info_ui.gif)
 
 
@@ -42,6 +43,7 @@ info class Lead
 ```sql
 create class Person
 ```
+![Create Class](create_class.gif)
 #### 修改`Person`繼承至`V`
 ```sql
 alter class Person superclass V
