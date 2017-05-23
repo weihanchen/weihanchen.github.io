@@ -48,14 +48,13 @@ create class Person
 ```sql
 alter class Person superclass V
 ```
-![Alter Superclass](alter_superclasss.png)
+![Alter Superclass](alter_superclasss.gif)
 
 ### abstract
 #### 建立抽象類別
 ```sql
 create class Vehicle extends V abstract
 ```
-![Create Abstract Class](create_abstract_class.png)
 
 #### 新增一筆資料至抽象類別將發生錯誤
 ```sql
