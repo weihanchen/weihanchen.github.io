@@ -1,16 +1,59 @@
 ---
 categories: orientdb
 title: 初探OrientDB
-date: 2017-05-22 11:43:35
+date: 2017-05-25 11:43:35
 tags: 
 ---
 
 初學OrientDB的一些心得記錄，並以實例來理解基礎操作
 
-## 關鍵要素
-- DATA_ENTITY - Document、Vertex(與Neo4j的Node一樣)。
-- RELATIONSHOP - edge(連接兩個node之間的關係)。
-- DATA_ATTRIBUTE - properties(資料屬性)。
+## OrientDB支援模式
+OrientDB主要支援以下兩種模式
+
+### Document Model
+文檔型模式，這種類型主要以key/value來存儲資料，非常適合非結構化的資料結構，以下說明關聯式模型與文檔型模型之間的對應關係。
+
+|關聯式模型|文檔式模型|
+|:---------:|:---------:|
+|Tabel|Class or Cluster|
+|Row|Document|
+|Column|Key/value pair|
+|Relationship|Link
+
+### Graph Model
+圖形模式主要以節點(Node)與邊(Edge)來進行連結，定義如下：
+- vertex - 頂點，一個實體可以連接到其他的頂點，並且具有以下的屬性：
+   - 唯一識別性
+   - 其他頂點連至本身的Edge集合(incoming)
+   - 本身連至其他頂點的Edge集合(outgoing)
+- edge - 邊，用來連結頂點的實體
+   - 唯一識別性
+   - 連入的頂點(head)
+   - 連出的頂點(tail)
+   - 標示頂點間的關係
+以下說明關聯式模型與圖形模型之間的對應關係
+
+|關聯式模型|圖形模型|
+|:--------|------:|
+|Table|Class or Cluster
+|Row|Vertex|
+|Column|Key/value pair|
+|Relationship|Edge|
+
+## 基礎概念
+
+### Record
+讀取與儲存的最小單元，主要有以下四種類型：
+- 文件
+- 紀錄的文字
+- 頂點
+- 邊
+
+### Record ID
+OrientDB內表示為`@rid`，每當產生一筆紀錄時將自動分配一個唯一的標示由Cluster與位置組成`#<cluster>:<position>`
+
+### Class
+類的概念來自物件導向，可以繼承自其他類形成樹狀體系，每個類又擁有自己的Cluster，一個類至少在一個Cluster底下，也可以隸屬於多個Cluster
 
 ## 名詞解釋
 - Properties
