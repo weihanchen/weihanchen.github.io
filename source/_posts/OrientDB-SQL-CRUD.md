@@ -33,6 +33,11 @@ eval表達式運算
 select eval("highwayMPG - cityMPG") as variance from Model
 ```
 
+使用Match語法
+```
+Match {class: Person, as: Person} RETURN $elements
+```
+
 ## 新增
 新增多筆紀錄
 ```sql

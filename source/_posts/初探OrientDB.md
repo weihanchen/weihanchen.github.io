@@ -139,6 +139,31 @@ insert into Company set name = "XYZ"
 select from V
 ```
 
+### Match查詢語法
+語法結構，類似於neo4j中的[Cypher](https://neo4j.com/developer/cypher-query-language/)語法
+```
+MATCH 
+  {
+    [class: <class>], 
+    [as: <alias>], 
+    [where: (<whereCondition>)]
+  }
+  .<functionName>(){
+    [class: <className>], 
+    [as: <alias>], 
+    [where: (<whereCondition>)], 
+    [while: (<whileCondition>)],
+    [maxDepth: <number>],
+    [optional: (true | false)]
+  }*
+RETURN <expression> [ AS <alias> ] [, <expression> [ AS <alias> ]]*
+LIMIT <number>
+```
+查詢範例
+```
+MATCH {class: Person, as: Person} RETURN $elements
+```
+
 ### 創建edge
 ```sql
 create edge WorkAt from #12:0 to #13:0
@@ -183,6 +208,13 @@ connect remote:localhost/databases/Demo root hello
 ```
 
 ### 其餘commands類似於Web UI操作
+
+## 注意重點
+### edge、linklist、linkmap
+- `edge`: 代表兩個頂點間的關係，`Person`與`Car`這兩個頂點間連接著`Drives`這個`Edge`，例如Jane Drives Ford
+- `link`: 代表與其他classes之間共同property的關聯與edge最大的差別在於沒有一個實體來記錄兩個class之間的關係。
+- `linkist`： 代表多個class關聯到某個class，例如`Car`這個class可能由`Part`中多個部分組成
+- `linkmap`： 
 
 ## 進階操作
 - [Transactions](http://orientdb.com/docs/last/OrientJS-Transactions.html)
