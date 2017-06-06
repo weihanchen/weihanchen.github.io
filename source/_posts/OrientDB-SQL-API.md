@@ -120,3 +120,46 @@ alter class Person addcluster Europe
 select from cluster:Europe
 ```
 
+### sql functions
+
+* `out`: 獲得從當前記錄為頂點開始向外的相鄰頂點，應取得company的id
+```sql
+select out(WorkAt) as companyId from Person
+```
+
+* `in`: 獲得從當前記錄為頂點開始向內的相鄰頂點
+```sql
+select in(WorkAt) as personId from Company
+```
+
+* `both`: 獲得從當前記錄為頂點開始向內向外的相鄰頂點
+```sql
+select both() from Person
+```
+
+* `outE`: 獲得從當前記錄為頂點開始向外的相鄰邊，應取得WorkAt的id
+```sql
+select outE() from Person
+```
+
+* `inE`: 獲得從當前記錄為頂點開始向內的相鄰邊
+```sql
+select inE() from Person
+```
+
+* `bothE`: 獲得從當前記錄為頂點開始向內向外的相鄰邊
+```sql
+select bothE() from Person
+```
+
+* `outV`: 查詢從當前記錄為某個邊由外向內的頂點
+```sql
+select outV() from WorkAt
+-- Person - WorkAt -> Company 結果為person id
+```
+
+* `inV`: 查詢
+```sql
+select inV() from WorkAt
+-- Person - WorkAt -> Company 結果為company id
+```

@@ -215,6 +215,7 @@ connect remote:localhost/databases/Demo root hello
 - `link`: 代表與其他classes之間共同property的關聯與edge最大的差別在於沒有一個實體來記錄兩個class之間的關係。
 - `linkist`： 代表多個class關聯到某個class，例如`Car`這個class可能由`Part`中多個部分組成
 - `linkmap`： 
+差異圖
 
 ## 進階操作
 - [Transactions](http://orientdb.com/docs/last/OrientJS-Transactions.html)
