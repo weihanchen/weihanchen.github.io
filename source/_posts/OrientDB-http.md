@@ -7,7 +7,7 @@ tags:
 OrientDB除了提供相關的程式語言client library之外，向支援一般的http request，以下將記錄相關的使用方式。
 
 ## Authentication and security
-OrientDB中的認證機制皆採用[Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)的認證機制，發送之前以`user:password`的字串並以[Base64](https://zh.wikipedia.org/wiki/Base64)算法編碼，server端接收後解碼得到正確的帳號密碼進行驗證，這種方式適合於內部溝通使用，因此OrientDB並不適合直接對外溝通。
+OrientDB中的認證機制皆採用[Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)的認證機制，發送之前以`user:password`的字串並以[Base64](https://zh.wikipedia.org/wiki/Base64)算法編碼，server端接收後解碼得到正確的帳號密碼進行驗證，這種方式適合於內部溝通使用，因此OrientDB並不適合直接對外溝通，首先測試是否與資料庫連接正常：
 
 ```sh
 curl -i --header "Authorization: Basic ${your user:password}" http://localhost:2480/connect/test
