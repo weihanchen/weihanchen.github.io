@@ -1,4 +1,5 @@
 ---
+categories: orientdb
 title: OrientDB-http
 date: 2017-06-14 10:10:01
 tags:
