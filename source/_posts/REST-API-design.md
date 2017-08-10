@@ -94,4 +94,14 @@ rel主要描述本頁與其他頁面之間的關係
 設定`Cache-Control`header為`private`可以繞過中介(例如像nginx這樣的代理), 最終只允許客戶端緩存，若設置為`public`則允許中介層緩存。
 然而`Expires`header主要告知瀏覽器緩存的有效期限。
 
-在API Response中定義`Expires`headers是比較困難的, 因為如果資料在server端進行了變更, 代表客戶端這邊的緩存是舊資料但是卻沒有任何方法可以知道資料失效了因此採用了條件請求的方式, 使用`Last-Modified`header回應請求, 並設置`max-age`header, 讓browser於一段時間後失效。
+在API Response中定義`Expires`headers是比較困難的, 那麼假設今天客戶端的電腦時間被調整了之後, 將造成`Expires`失效, 因為若時間調整的比`Expires`大, 那麼瀏覽器就會認定所有的Cache都是過期的, 因此將重複發送Request便失去了緩存的意義。
+
+因此採用了條件請求的方式, 使用`Last-Modified`header回應請求, 並設置`max-age`header, 讓browser於一段時間後失效, 運作情境如下
+>1. 向後端發送request。
+>2. response中告知`Last-Modified`時間，並將`max-age`設為一年。
+>3. 假設半年後發送請求時, 因為`max-age`尚未失效因此未向server端發送請求。
+>4. 假設一年後發送請求時, 因為`max-age`已失效, 因此會向server端進行一次request, 但是請求時會根據`Last-Modified`的紀錄重新夾帶`If-Modified-Since`header。
+>5. 此時server端會根據`If-Modified-Since`去比對檔案更新時間, 那麼當檔案確實更新了將會發送新的檔案並重新夾帶header資訊如步驟2
+>6. 假設檔案尚未更新那個將回應`304 Not Modified`， 而client端也將重快取資源中存取。
+
+
