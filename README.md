@@ -1,9 +1,7 @@
 # Blog
 
 ## Step
-- install dependencies with `npm install`
-- run `npm start` on 4000 `port`
-- build files `npm run build`
-
+- install [hugo](https://gohugo.io/getting-started/installing/)
+- live reload use `$GOPATH/bin/hugo server -D`
 ## Commands
-- create new post `npm run new [title]`
+- create new post `$GOPATH/bin/hugo new post/example.md`
