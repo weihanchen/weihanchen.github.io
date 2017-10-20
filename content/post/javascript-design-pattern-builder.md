@@ -5,11 +5,9 @@ categories: [javascript]
 draft: true
 ---
 
-## Javascript Design Pattern Builder
+Builder模式主要在同樣的建構過程中創建不同的表示，也就是說不必事先定義方法內容，透過建造者模式在適當時機進行建造，在javascript語言中則使用callback方式完成，主要目的是職責分離。
 
 <!--more-->
-
-Builder模式主要在同樣的建構過程中創建不同的表示，也就是說不必事先定義方法內容，透過建造者模式在適當時機進行建造，在javascript語言中則使用callback方式完成，主要目的是職責分離。
 
 ```javascript
 function counter(name,timeEnd, callback) { //定義一個counter方法，目的當timeEnd到指定的數值時進行builder所創建的工作

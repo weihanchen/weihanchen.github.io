@@ -1,12 +1,15 @@
-language: node_js
-node_js:
-  - 6.0.0
+dist: trusty
+language: go
+go:
+  - 1.8.3
 before_script:
-  - npm install
+  - go get gopkg.in/yaml.v2
+  - go get -u -v github.com/gohugoio/hugo
   - git clone --branch $TARGET_BRANCH $FULL_REPO $BUILD_FOLDER
 script:
-  - hexo g
+  - hugo
 after_success:
+  - rm -rf $BUILD_FOLDER
   - cp README.md $BUILD_FOLDER
   - cd $BUILD_FOLDER
   - git config --global user.email "${GITHUB_MAIL}"
