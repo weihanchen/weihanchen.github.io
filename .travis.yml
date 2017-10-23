@@ -2,14 +2,14 @@ dist: trusty
 language: go
 go:
   - 1.8.3
-  
+
 install: go get -v github.com/spf13/hugo
 
 script:
   - hugo
 
 deploy:
-  providers: pages
+  provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   on:
