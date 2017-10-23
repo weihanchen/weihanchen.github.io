@@ -8,17 +8,18 @@ before_script:
   - git clone --branch $TARGET_BRANCH $FULL_REPO $BUILD_FOLDER
 script:
   - hugo
-after_success:
-  - rm -rf $BUILD_FOLDER
-  - cp README.md $BUILD_FOLDER
-  - cd $BUILD_FOLDER
-  - git config --global user.email "${GITHUB_MAIL}"
-  - git config --global user.name "${GITHUB_USER}"
-  - git status
-  - git add .
-  - MESSAGE=`date +\ %Y-%m-%d\ %H:%M:%S`
-  - git commit -m "Site updated:${MESSAGE}"
-  - git push $FULL_REPO $TARGET_BRANCH
+  
+deploy:
+  providers: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master
+  local_dir: public
+  repo: weihanchen/weihanchen.github.io
+  target_branch: master
+  email: $GITHUB_MAIL
+
 branches:
   only:
     - hexo
