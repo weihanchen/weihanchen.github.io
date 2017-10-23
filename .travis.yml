@@ -8,7 +8,7 @@ before_script:
   - git clone --branch $TARGET_BRANCH $FULL_REPO $BUILD_FOLDER
 script:
   - hugo
-  
+
 deploy:
   providers: pages
   skip_cleanup: true
@@ -22,7 +22,7 @@ deploy:
 
 branches:
   only:
-    - hexo
+    - hugo
 notification:
   email:
     - ${GITHUB_MAIL}
