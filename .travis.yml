@@ -2,10 +2,9 @@ dist: trusty
 language: go
 go:
   - 1.8.3
-before_script:
-  - go get gopkg.in/yaml.v2
-  - go get -u -v github.com/gohugoio/hugo
-  - git clone --branch $TARGET_BRANCH $FULL_REPO $BUILD_FOLDER
+  
+install: go get -v github.com/spf13/hugo
+
 script:
   - hugo
 
