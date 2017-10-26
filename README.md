@@ -1,4 +1,4 @@
-# Blog
+# Note
 
 ## Step
 - install [hugo](https://gohugo.io/getting-started/installing/)
