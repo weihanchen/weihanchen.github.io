@@ -13,7 +13,7 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   on:
-    branch: master
+    branch: hugo
   local_dir: public
   target_branch: master
   email: $GITHUB_MAIL
