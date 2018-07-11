@@ -9,7 +9,7 @@ draft: true
 # REST API design
 
 ## 避免API設計缺陷
-簡介一個缺陷的API，想像一下當我們存取商品種類清單時，以往可能以這樣的方式向後端請求`GET /categories`，那麼存取某個商品種類的方式可能會是這樣`GET /getProductListFromCategory?category_id=id`，檢查商品是否屬於某個類別`GET /productInCategories?values=id_1,id_2,...id_n`，當我們需要更改產品說明時我們必須將整個產品資訊發送回去`POST /product`並夾帶大量的資訊於body.再假設一個情境是需要發送特定的mail給特定的人並存取這樣的API`POST /email-customer`需要夾帶他們的email與message。
+簡介一個缺陷的API，想像一下當我們存取商品種類清單時，以往可能以這樣的方式向後端請求`GET /categories`，那麼存取某個商品種類的方式可能會是這樣`GET /getProductListFromCategory?category_id=id`，檢查商品是否屬於某個類別`GET /productInCategories?values=id_1,id_2,...id_n`，當我們需要更改產品說明時我們必須將整個產品資訊發送回去`POST /product`並夾帶大量的資訊於body，再假設一個情境是需要發送特定的mail給特定的人那麼API會長這樣:`POST /email-customer`，需要夾帶他們的email與message。
 
 如果我們不能從上面的例子中找出API設計的缺陷，那麼代表我們花太多時間在設計相同的API上了，以下列出幾個有問題的設計：
 
@@ -19,7 +19,7 @@ draft: true
 * API設計不一致，良好的API設計不僅文件清晰並提供一致性的API介面以及設計者能夠輕鬆建立。
 
 ## Endpoints, HTTP verbs, and versioning
-當我們常常使用到公共API時可能會感覺到明顯的差異，哪些API簡潔易懂哪些用起來非常不方便，好的API甚至不需要太詳細的文件描述就能知道API的意圖舉例來說Facebook的Graph REST API就非常容易使用`http://facebook.com/me`，不僅將您帶到個人資訊甚至進行了身份驗證動作，相比之下糟糕的API設計導致混亂原因是： 不明確的命名、文件描述不明確...等，因此我們必須逐步的來避免這樣的狀況發生。
+當我們常常使用到公共API時可能會感覺到明顯的差異，哪些API簡潔易懂、哪些用起來非常不方便，好的API甚至不需要太詳細的文件描述就能知道API的意圖，舉例來說Facebook的Graph REST API就非常容易使用`http://facebook.com/me`，不僅將您帶到個人資訊甚至進行了身份驗證動作，相比之下糟糕的API設計導致混亂原因是： 不明確的命名、文件描述不明確...等，因此我們必須逐步的來避免這樣的狀況發生。
 
 ### 管理你的Endpoints
 首先我們必須為所有API端點定義一個前綴,例如我們有一個子網域`api.example.com`，我們可以加上`api.example.com/api`這樣的前綴來識別API與前端頁面路由的差異，並提供以下幾個原則：
@@ -56,7 +56,7 @@ draft: true
 目前JSON格式被廣泛用於前後端溝通的共同語言，當然有其他格式可以使用，這就取決於需求，但跟著大眾的需求相對的相關library也會比較多, 意味著前後端在解析時相對較容易。
 
 ### Response
-溝通語言必須與request相同舉例來說若request的格式為json，那麼response也必須為json，並且必須包裝回應的格式, 如下,我們以data來做為包裝
+溝通語言必須與request相同舉例來說若request的格式為json，那麼response也必須為json，並且必須包裝回應的格式, 如下我們以data來做為包裝
 
 ```json
 {
