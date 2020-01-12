@@ -18,13 +18,26 @@ ES6的模組概念主要是將一個大程序拆成小組件, 需要時再取相
 * 也可以用別名來隱藏內部細節。
 
 ```javascript
-const 
+const str = "test";
 class Person {
     private name;
     constructor() {} 
 }
 
-export { Person, }
-
-
+export { Person, str as strTest }
 ```
+
+## 輸入
+* 使用大括號`{}`引入相關的類別、方法...
+* 使用萬用字元`*`引入所有類別、方法...到某個變數。
+
+```javascript
+import { Person, strTest } from './person';
+
+import * as p from './person';
+
+console.log(p.Person);
+console.log(p.strTest);
+```
+
+## `export default`輸入與輸出
