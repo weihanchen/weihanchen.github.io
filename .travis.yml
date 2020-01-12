@@ -3,7 +3,9 @@ language: go
 go:
   - 1.8.3
 
-install: go get -v github.com/spf13/hugo
+install:
+  - wget "https://github.com/gohugoio/hugo/releases/download/v${HUGO_RELEASE}/hugo_extended_${HUGO_RELEASE}_Linux-64bit.deb"
+  - sudo dpkg -i hugo*.deb
 
 script:
   - hugo -D
@@ -25,3 +27,6 @@ notification:
   email:
     - ${GITHUB_MAIL}
   on_success: always
+env:
+  global:
+    - HUGO_RELEASE=0.62.2
