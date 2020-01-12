@@ -1,15 +1,17 @@
 ---
 title: "Javascript Design Pattern Module"
 date: 2017-03-30T17:09:37+08:00
-categories: [javascript]
+categories: [nodejs]
 draft: true
 ---
+
+<!--more-->
 
 #### Module Pattern的特點
 - 模組化
 - 封裝性、鬆耦合
 - 只暴露public方法，隱藏private方法
-<!--more-->
+
 #### 基本用法
 ```javascript
  var Calculator = (function() {
