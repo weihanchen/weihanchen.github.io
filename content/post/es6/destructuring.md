@@ -1,6 +1,6 @@
 ---
 title: "解構賦值 Destructuring Assignment"
-date: 2017-03-28T18:09:37+08:00
+date: 2020-01-12T18:09:37+08:00
 categories: [es6]
 draft: true
 ---
