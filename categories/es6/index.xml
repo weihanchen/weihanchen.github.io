@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>es6 on My Programming Notes</title>
+    <link>https://weihanchen.github.io/categories/es6/</link>
+    <description>Recent content in es6 on My Programming Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Jan 2020 20:09:37 +0800</lastBuildDate>
+    
+	<atom:link href="https://weihanchen.github.io/categories/es6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Export、Import 模組</title>
+      <link>https://weihanchen.github.io/2020/01/exportimport-%E6%A8%A1%E7%B5%84/</link>
+      <pubDate>Sun, 12 Jan 2020 20:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2020/01/exportimport-%E6%A8%A1%E7%B5%84/</guid>
+      <description>&lt;p&gt;撰寫中&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>物件的語法糖</title>
+      <link>https://weihanchen.github.io/2020/01/%E7%89%A9%E4%BB%B6%E7%9A%84%E8%AA%9E%E6%B3%95%E7%B3%96/</link>
+      <pubDate>Sun, 12 Jan 2020 20:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2020/01/%E7%89%A9%E4%BB%B6%E7%9A%84%E8%AA%9E%E6%B3%95%E7%B3%96/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Set物件</title>
+      <link>https://weihanchen.github.io/2020/01/set%E7%89%A9%E4%BB%B6/</link>
+      <pubDate>Sun, 12 Jan 2020 19:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2020/01/set%E7%89%A9%E4%BB%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>擴展運算子 Spread Operator</title>
+      <link>https://weihanchen.github.io/2020/01/%E6%93%B4%E5%B1%95%E9%81%8B%E7%AE%97%E5%AD%90-spread-operator/</link>
+      <pubDate>Sun, 12 Jan 2020 19:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2020/01/%E6%93%B4%E5%B1%95%E9%81%8B%E7%AE%97%E5%AD%90-spread-operator/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>樣板字串 String Template</title>
+      <link>https://weihanchen.github.io/2020/01/%E6%A8%A3%E6%9D%BF%E5%AD%97%E4%B8%B2-string-template/</link>
+      <pubDate>Sun, 12 Jan 2020 19:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2020/01/%E6%A8%A3%E6%9D%BF%E5%AD%97%E4%B8%B2-string-template/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>解構賦值 Destructuring Assignment</title>
+      <link>https://weihanchen.github.io/2020/01/%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC-destructuring-assignment/</link>
+      <pubDate>Sun, 12 Jan 2020 18:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2020/01/%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC-destructuring-assignment/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

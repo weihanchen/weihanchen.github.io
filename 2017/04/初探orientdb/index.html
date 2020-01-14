@@ -1,0 +1,913 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.62.2 with theme Tranquilpeak 0.4.1-BETA">
+    <title>初探Orientdb</title>
+    <meta name="author" content="weihanchen">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="https://weihanchen.github.io/favicon.png">
+    
+
+    
+    <meta name="description" content="初學OrientDB的一些心得記錄，並以實例來理解基礎操作">
+    <meta property="og:description" content="初學OrientDB的一些心得記錄，並以實例來理解基礎操作">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="初探Orientdb">
+    <meta property="og:url" content="/2017/04/%E5%88%9D%E6%8E%A2orientdb/">
+    <meta property="og:site_name" content="My Programming Notes">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="My Programming Notes">
+    <meta name="twitter:description" content="初學OrientDB的一些心得記錄，並以實例來理解基礎操作">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/fb124559c5114bf58b5a6f14841b36c3?s=640">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://weihanchen.github.io/css/style-fpbzgxsy0kgmdvyrj5ykkg6ratccrk3gocmaqn4xpcjywmv5dteilzucro4f.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://weihanchen.github.io/">My Programming Notes</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://weihanchen.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/fb124559c5114bf58b5a6f14841b36c3?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://weihanchen.github.io/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/fb124559c5114bf58b5a6f14841b36c3?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">weihanchen</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://weihanchen.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://weihanchen.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://weihanchen.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://weihanchen.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://weihanchen.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/weihanchen" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      初探Orientdb
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-04-03T17:09:37&#43;08:00">
+        
+  April 3, 2017
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://weihanchen.github.io/categories/orientdb">orientdb</a>
+    
+  
+
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>初學OrientDB的一些心得記錄，並以實例來理解基礎操作</p>
+<h2 id="orientdb支援模式">OrientDB支援模式</h2>
+<p>OrientDB主要支援以下兩種模式</p>
+<h3 id="document-model">Document Model</h3>
+<p>文檔型模式，這種類型主要以key/value來存儲資料，非常適合非結構化的資料結構，以下說明關聯式模型與文檔型模型之間的對應關係。</p>
+<table>
+<thead>
+<tr>
+<th align="center">關聯式模型</th>
+<th align="center">文檔式模型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Tabel</td>
+<td align="center">Class or Cluster</td>
+</tr>
+<tr>
+<td align="center">Row</td>
+<td align="center">Document</td>
+</tr>
+<tr>
+<td align="center">Column</td>
+<td align="center">Key/value pair</td>
+</tr>
+<tr>
+<td align="center">Relationship</td>
+<td align="center">Link</td>
+</tr>
+</tbody>
+</table>
+<h3 id="graph-model">Graph Model</h3>
+<p>圖形模式主要以節點(Node)與邊(Edge)來進行連結，定義如下：</p>
+<ul>
+<li>vertex - 頂點，一個實體可以連接到其他的頂點，並且具有以下的屬性：
+<ul>
+<li>唯一識別性</li>
+<li>其他頂點連至本身的Edge集合(incoming)</li>
+<li>本身連至其他頂點的Edge集合(outgoing)</li>
+</ul>
+</li>
+<li>edge - 邊，用來連結頂點的實體
+<ul>
+<li>唯一識別性</li>
+<li>連入的頂點(head)</li>
+<li>連出的頂點(tail)</li>
+<li>標示頂點間的關係
+以下說明關聯式模型與圖形模型之間的對應關係</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">關聯式模型</th>
+<th align="right">圖形模型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Table</td>
+<td align="right">Class or Cluster</td>
+</tr>
+<tr>
+<td align="left">Row</td>
+<td align="right">Vertex</td>
+</tr>
+<tr>
+<td align="left">Column</td>
+<td align="right">Key/value pair</td>
+</tr>
+<tr>
+<td align="left">Relationship</td>
+<td align="right">Edge</td>
+</tr>
+</tbody>
+</table>
+<h2 id="基礎概念">基礎概念</h2>
+<h3 id="record">Record</h3>
+<p>讀取與儲存的最小單元，主要有以下四種類型：</p>
+<ul>
+<li>文件</li>
+<li>紀錄的文字</li>
+<li>頂點</li>
+<li>邊</li>
+</ul>
+<h3 id="record-id">Record ID</h3>
+<p>OrientDB內表示為<code>@rid</code>，每當產生一筆紀錄時將自動分配一個唯一的標示由Cluster與位置組成<code>#&lt;cluster&gt;:&lt;position&gt;</code></p>
+<h3 id="class">Class</h3>
+<p>類的概念來自物件導向，可以繼承自其他類形成樹狀體系，每個類又擁有自己的Cluster，一個類至少在一個Cluster底下，也可以隸屬於多個Cluster</p>
+<h2 id="名詞解釋">名詞解釋</h2>
+<ul>
+<li>Properties
+<ul>
+<li>具有資料型態(Boolean、Integer)</li>
+<li>可以被indexed</li>
+</ul>
+</li>
+<li>Vertex
+<ul>
+<li>具備連結關係: <code>incoming edges</code>、<code>outgoing edges</code></li>
+<li>也被稱為<code>Nodes</code></li>
+<li>可以想像為圖的圓圈</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+   <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">d</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">2</span><span style="color:#960050;background-color:#1e0010">0</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#960050;background-color:#1e0010">2</span><span style="color:#960050;background-color:#1e0010">3</span>
+   <span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">m</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#f92672">&#34;wendy&#34;</span>,
+   <span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">[</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#960050;background-color:#1e0010">1</span><span style="color:#960050;background-color:#1e0010">3</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#960050;background-color:#1e0010">2</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#960050;background-color:#1e0010">1</span><span style="color:#960050;background-color:#1e0010">3</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#960050;background-color:#1e0010">4</span><span style="color:#960050;background-color:#1e0010">5</span><span style="color:#960050;background-color:#1e0010">]</span><span style="color:#960050;background-color:#1e0010">,</span>
+   <span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">[</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#960050;background-color:#1e0010">1</span><span style="color:#960050;background-color:#1e0010">2</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#960050;background-color:#1e0010">1</span><span style="color:#960050;background-color:#1e0010">0</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#960050;background-color:#1e0010">1</span><span style="color:#960050;background-color:#1e0010">4</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#960050;background-color:#1e0010">3</span><span style="color:#960050;background-color:#1e0010">3</span><span style="color:#960050;background-color:#1e0010">]</span>
+}
+</code></pre></div><ul>
+<li>Edge
+<ul>
+<li>紀錄<code>Vertex</code>之間的關係</li>
+<li>雙向</li>
+</ul>
+</li>
+<li>Class
+<ul>
+<li>資料的類型</li>
+<li>例如<code>Person</code>、<code>SuperHero</code></li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+   <span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">p</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">c</span><span style="color:#960050;background-color:#1e0010">l</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#f92672">&#34;Person&#34;</span>,
+   <span style="color:#960050;background-color:#1e0010">c</span><span style="color:#960050;background-color:#1e0010">l</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">[</span><span style="color:#960050;background-color:#1e0010">1</span><span style="color:#960050;background-color:#1e0010">5</span><span style="color:#960050;background-color:#1e0010">]</span><span style="color:#960050;background-color:#1e0010">,</span>
+   <span style="color:#960050;background-color:#1e0010">d</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">f</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">l</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">C</span><span style="color:#960050;background-color:#1e0010">l</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">1</span><span style="color:#960050;background-color:#1e0010">5</span><span style="color:#960050;background-color:#1e0010">,</span>
+   <span style="color:#960050;background-color:#1e0010">p</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">p</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">[</span>
+      <span style="color:#960050;background-color:#1e0010">{</span>
+         <span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">m</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#f92672">&#34;steven&#34;</span>,
+         <span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">y</span><span style="color:#960050;background-color:#1e0010">p</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#f92672">&#34;LONG&#34;</span>,
+         <span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">d</span><span style="color:#960050;background-color:#1e0010">y</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">l</span><span style="color:#960050;background-color:#1e0010">y</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">f</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">l</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">e</span>
+      }
+   <span style="color:#960050;background-color:#1e0010">]</span>
+<span style="color:#960050;background-color:#1e0010">}</span>
+</code></pre></div><ul>
+<li>Cluster
+<ul>
+<li>多個<code>Person</code>類別歸在某個<code>Cluster</code></li>
+<li>儲存、擴展、封存</li>
+<li>查詢最佳化(Map/Reduce Query)</li>
+</ul>
+</li>
+</ul>
+<h2 id="開始進入orientdb並實作人與公司之間的案例">開始進入OrientDB，並實作人與公司之間的案例</h2>
+<p>假設已經將<a href="https://orientdb.com/docs/2.1/Tutorial-Installation.html">OrientDB</a>安裝完成後進入下面步驟,分別示範<code>Person</code>、<code>Company</code>、<code>WorksAt</code>之間的關係。</p>
+<h3 id="網頁ui編輯模式">網頁UI編輯模式</h3>
+<p>進入<code>localhost:2480</code>，依據主機ip與啟動port號不同自行修改。</p>
+<h3 id="創建db">創建db</h3>
+<p><img src="https://weihanchen.github.io/images/orientdb-beginner/create_db.gif" alt="Create db"></p>
+<h3 id="創建class">創建class</h3>
+<p>其中<code>WorkAt</code>繼承自<code>edge</code>用來連結<code>Company</code>及<code>Person</code>
+Command</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">class</span> Person extends V
+<span style="color:#66d9ef">create</span> <span style="color:#66d9ef">class</span> Company extends V
+<span style="color:#66d9ef">create</span> <span style="color:#66d9ef">class</span> WorkAt extends E
+</code></pre></div><h3 id="創建property">創建property</h3>
+<p>Command</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">create</span> property Person.firstName string
+<span style="color:#66d9ef">create</span> property Person.lastName string
+<span style="color:#66d9ef">create</span> property Company.name string
+</code></pre></div><h3 id="新增sample-data">新增sample data</h3>
+<p>Command</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> Person (firstName, lastName) <span style="color:#66d9ef">values</span> (<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Gary</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">White</span><span style="color:#e6db74">&#34;</span>), (<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Join</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Steven</span><span style="color:#e6db74">&#34;</span>), (<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Lin</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Tom</span><span style="color:#e6db74">&#34;</span>)
+<span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> Company <span style="color:#66d9ef">set</span> name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">ABC</span><span style="color:#e6db74">&#34;</span>
+<span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> Company <span style="color:#66d9ef">set</span> name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">XYZ</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div><h3 id="查詢class">查詢class</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> <span style="color:#66d9ef">from</span> V
+</code></pre></div><h3 id="match查詢語法">Match查詢語法</h3>
+<p>語法結構，類似於neo4j中的<a href="https://neo4j.com/developer/cypher-query-language/">Cypher</a>語法</p>
+<pre><code>MATCH 
+  {
+    [class: &lt;class&gt;], 
+    [as: &lt;alias&gt;], 
+    [where: (&lt;whereCondition&gt;)]
+  }
+  .&lt;functionName&gt;(){
+    [class: &lt;className&gt;], 
+    [as: &lt;alias&gt;], 
+    [where: (&lt;whereCondition&gt;)], 
+    [while: (&lt;whileCondition&gt;)],
+    [maxDepth: &lt;number&gt;],
+    [optional: (true | false)]
+  }*
+RETURN &lt;expression&gt; [ AS &lt;alias&gt; ] [, &lt;expression&gt; [ AS &lt;alias&gt; ]]*
+LIMIT &lt;number&gt;
+</code></pre><p>查詢範例</p>
+<pre><code>MATCH {class: Person, as: Person} RETURN $elements
+</code></pre><h3 id="創建edge">創建edge</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">create</span> edge WorkAt <span style="color:#66d9ef">from</span> <span style="color:#f92672">#</span><span style="color:#ae81ff">12</span>:<span style="color:#ae81ff">0</span> <span style="color:#66d9ef">to</span> <span style="color:#f92672">#</span><span style="color:#ae81ff">13</span>:<span style="color:#ae81ff">0</span>
+</code></pre></div><h3 id="進到graph頁面查看關係圖">進到graph頁面查看關係圖</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> <span style="color:#66d9ef">from</span> V
+</code></pre></div><p><img src="https://weihanchen.github.io/images/orientdb-beginner/graph_relation.png" alt="Graph Relation"></p>
+<h3 id="直接藉由ui建立關聯">直接藉由UI建立關聯</h3>
+<p><img src="https://weihanchen.github.io/images/orientdb-beginner/create_relation.gif" alt="Create Relation"></p>
+<h3 id="由ui產生新的vertex">由UI產生新的vertex</h3>
+<p><img src="https://weihanchen.github.io/images/orientdb-beginner/create_node.gif" alt="Create Node"></p>
+<h2 id="console模式">Console模式</h2>
+<h3 id="啟動">啟動</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd orientdb/bin
+./server.sh
+<span style="color:#75715e"># open new tab</span>
+./console.sh
+</code></pre></div><h3 id="建立db">建立db</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">create database remote:localhost/Demo root hello plocal
+<span style="color:#75715e"># plocal is storage type</span>
+</code></pre></div><h3 id="停止連接">停止連接</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">disconnect
+</code></pre></div><h3 id="連接">連接</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">connect remote:localhost/databases/Demo root hello
+</code></pre></div><h3 id="其餘commands類似於web-ui操作">其餘commands類似於Web UI操作</h3>
+<h2 id="注意重點">注意重點</h2>
+<h3 id="edgelinklistlinkmap">edge、linklist、linkmap</h3>
+<ul>
+<li><code>edge</code>: 代表兩個頂點間的關係，<code>Person</code>與<code>Car</code>這兩個頂點間連接著<code>Drives</code>這個<code>Edge</code>，例如Jane Drives Ford</li>
+<li><code>link</code>: 代表與其他classes之間共同property的關聯與edge最大的差別在於沒有一個實體來記錄兩個class之間的關係。</li>
+<li><code>linkist</code>： 代表多個class關聯到某個class，例如<code>Car</code>這個class可能由<code>Part</code>中多個部分組成</li>
+<li><code>linkmap</code>：
+差異圖</li>
+</ul>
+<h2 id="進階操作">進階操作</h2>
+<ul>
+<li><a href="http://orientdb.com/docs/last/OrientJS-Transactions.html">Transactions</a></li>
+<li><a href="https://orientdb.com/docs/2.2/Functions-Server.html">Server Side Functions</a></li>
+</ul>
+<h2 id="參考資料">參考資料</h2>
+<ul>
+<li><a href="https://www.udemy.com/orientdb-getting-started">udemy-orientdb</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://weihanchen.github.io/2017/04/orientdb-sql-crud/" data-tooltip="OrientDB-SQL-CRUD">
+              
+                <i class="fa fa-angle-left"></i>
+                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+              </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://weihanchen.github.io/2017/04/rest-api-design/" data-tooltip="REST API Design">
+              
+                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </li>
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://weihanchen.github.io/2017/04/%E5%88%9D%E6%8E%A2orientdb/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://weihanchen.github.io/2017/04/%E5%88%9D%E6%8E%A2orientdb/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 weihanchen. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://weihanchen.github.io/2017/04/orientdb-sql-crud/" data-tooltip="OrientDB-SQL-CRUD">
+              
+                <i class="fa fa-angle-left"></i>
+                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+              </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://weihanchen.github.io/2017/04/rest-api-design/" data-tooltip="REST API Design">
+              
+                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </li>
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://weihanchen.github.io/2017/04/%E5%88%9D%E6%8E%A2orientdb/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://weihanchen.github.io/2017/04/%E5%88%9D%E6%8E%A2orientdb/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fweihanchen.github.io%2F2017%2F04%2F%25E5%2588%259D%25E6%258E%25A2orientdb%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fweihanchen.github.io%2F2017%2F04%2F%25E5%2588%259D%25E6%258E%25A2orientdb%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/fb124559c5114bf58b5a6f14841b36c3?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">weihanchen</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Software Developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Taiwan
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/exportimport-%E6%A8%A1%E7%B5%84/">
+                <h3 class="media-heading">Export、Import 模組</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>撰寫中&hellip;</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/post/">
+                <h3 class="media-heading">Posts</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/%E7%89%A9%E4%BB%B6%E7%9A%84%E8%AA%9E%E6%B3%95%E7%B3%96/">
+                <h3 class="media-heading">物件的語法糖</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/set%E7%89%A9%E4%BB%B6/">
+                <h3 class="media-heading">Set物件</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/%E6%93%B4%E5%B1%95%E9%81%8B%E7%AE%97%E5%AD%90-spread-operator/">
+                <h3 class="media-heading">擴展運算子 Spread Operator</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/%E6%A8%A3%E6%9D%BF%E5%AD%97%E4%B8%B2-string-template/">
+                <h3 class="media-heading">樣板字串 String Template</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC-destructuring-assignment/">
+                <h3 class="media-heading">解構賦值 Destructuring Assignment</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/nodejs-cluster/">
+                <h3 class="media-heading">Nodejs Cluster</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/nodejs-worker-threads/">
+                <h3 class="media-heading">Nodejs worker threads</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2018/06/unsupervised_word/">
+                <h3 class="media-heading">Unsupervised_word</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jun 6, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">現新詞的傳統作法通常先對本文進行分詞，然後剩餘未成功匹配的片斷便被視為新詞，但是設想一個問題，當詞庫內原本並無新詞的存在又如何信任此結果？ 因此假若統計時能夠基於原始文本並根據詞的共同特徵進行新詞探索(無監督)，然後再與詞庫進行比較，這樣變能更準確的找出新詞，以下便介紹統計的相關算法。
+算法及步驟  假設文本為: 吃葡萄不吐葡萄皮不吃葡萄倒吐葡萄皮 統計詞頻: 假設我們將一段文字根據window size來切割便能統計出詞，假設window size為5  吃(2) 吃葡(2) 吃葡萄(2) 吃葡萄不(1) 吃葡萄不吐(1) 葡(4) 葡萄(4) 葡萄不(1) 葡萄不吐(1) 葡萄不吐葡(1) 萄(4) 萄不(1) 內部凝固度(cohesiveStrength): 一般來說我們會將統計詞的頻數，並設定門檻值，高於門檻值便被視為新詞，但基於詞頻仍然不夠，例如看電影出現了501次，電影院出現了175次，雖然看電影出現的次數較多但是直覺上&quot;電影院&quot;更加凝固一些,經由統計也能得出此結果, 以下範例則以吃葡萄不吐葡萄皮不吃葡萄倒吐葡萄皮來進行推演。  首先我們計算出概率
+吃(2/17) 吃葡(2/17) 吃葡萄(2/17) 吃葡萄不(1/17) 吃葡萄不吐(1/17) 葡(4/17) 葡萄(4/17) 葡萄不(1/17) 葡萄不吐(1/17) 葡萄不吐葡(1/17) 萄(4/17) 萄不(1/17) 假設計算&quot;葡萄&quot;的凝固度我們可以分為左右兩邊來進行觀察
+吃葡萄(2/17) = 0.11764705882352941 左：（吃葡萄) / (吃 * 葡萄) 吃(2/17) * 葡萄(4/17) = 0.02768166089965398 lfProb = 0.11764705882352941(吃葡萄) / 0.02768166089965398(吃 * 葡萄) = 4.25 右: （吃葡萄) / (吃葡 * 萄) 吃葡(2/17) * 萄(4/17) = 0.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         22 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://weihanchen.github.io/images/cover.png');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-IFHWFEbU2/+wNycDECKgjIRSirRNIDp2acEB5fvdVRU=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js" integrity="sha256-+mpyNVJsNt4rVXCw0F+pAOiB3YxmHgrbJsx4ecPuUaI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js" integrity="sha256-vMxgR/7FtLovVA+IPrR7+xTgIgARH7y9VZQnmmi0HDI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js" integrity="sha256-N0qFUh7/9vLvia87dDndewmsgsyYoNkdA212tPc+2NI=" crossorigin="anonymous"></script>
+
+
+<script src="https://weihanchen.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/weihanchen.github.io\/2017\/04\/%E5%88%9D%E6%8E%A2orientdb\/';
+          
+            this.page.identifier = '\/2017\/04\/%E5%88%9D%E6%8E%A2orientdb\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'weihanchen';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+

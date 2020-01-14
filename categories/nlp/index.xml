@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NLP on My Programming Notes</title>
+    <link>https://weihanchen.github.io/categories/nlp/</link>
+    <description>Recent content in NLP on My Programming Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 13 Jun 2018 12:04:13 +0800</lastBuildDate>
+    
+	<atom:link href="https://weihanchen.github.io/categories/nlp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Unsupervised_word</title>
+      <link>https://weihanchen.github.io/2018/06/unsupervised_word/</link>
+      <pubDate>Wed, 13 Jun 2018 12:04:13 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2018/06/unsupervised_word/</guid>
+      <description>現新詞的傳統作法通常先對本文進行分詞，然後剩餘未成功匹配的片斷便被視為新詞，但是設想一個問題，當詞庫內原本並無新詞的存在又如何信任此結果？ 因此假若統計時能夠基於原始文本並根據詞的共同特徵進行新詞探索(無監督)，然後再與詞庫進行比較，這樣變能更準確的找出新詞，以下便介紹統計的相關算法。
+算法及步驟  假設文本為: 吃葡萄不吐葡萄皮不吃葡萄倒吐葡萄皮 統計詞頻: 假設我們將一段文字根據window size來切割便能統計出詞，假設window size為5  吃(2) 吃葡(2) 吃葡萄(2) 吃葡萄不(1) 吃葡萄不吐(1) 葡(4) 葡萄(4) 葡萄不(1) 葡萄不吐(1) 葡萄不吐葡(1) 萄(4) 萄不(1) 內部凝固度(cohesiveStrength): 一般來說我們會將統計詞的頻數，並設定門檻值，高於門檻值便被視為新詞，但基於詞頻仍然不夠，例如看電影出現了501次，電影院出現了175次，雖然看電影出現的次數較多但是直覺上&amp;quot;電影院&amp;quot;更加凝固一些,經由統計也能得出此結果, 以下範例則以吃葡萄不吐葡萄皮不吃葡萄倒吐葡萄皮來進行推演。  首先我們計算出概率
+吃(2/17) 吃葡(2/17) 吃葡萄(2/17) 吃葡萄不(1/17) 吃葡萄不吐(1/17) 葡(4/17) 葡萄(4/17) 葡萄不(1/17) 葡萄不吐(1/17) 葡萄不吐葡(1/17) 萄(4/17) 萄不(1/17) 假設計算&amp;quot;葡萄&amp;quot;的凝固度我們可以分為左右兩邊來進行觀察
+吃葡萄(2/17) = 0.11764705882352941 左：（吃葡萄) / (吃 * 葡萄) 吃(2/17) * 葡萄(4/17) = 0.02768166089965398 lfProb = 0.11764705882352941(吃葡萄) / 0.02768166089965398(吃 * 葡萄) = 4.25 右: （吃葡萄) / (吃葡 * 萄) 吃葡(2/17) * 萄(4/17) = 0.</description>
+    </item>
+    
+  </channel>
+</rss>

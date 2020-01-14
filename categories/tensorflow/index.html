@@ -1,0 +1,525 @@
+
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.62.2 with theme Tranquilpeak 0.4.1-BETA">
+    <title>tensorflow</title>
+    <meta name="author" content="weihanchen">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="https://weihanchen.github.io/favicon.png">
+    
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://weihanchen.github.io/categories/tensorflow/index.xml">
+    
+
+    
+    <meta name="description" content="Programming Notes">
+    <meta property="og:description" content="Programming Notes">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="tensorflow">
+    <meta property="og:url" content="/categories/tensorflow/">
+    <meta property="og:site_name" content="My Programming Notes">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="My Programming Notes">
+    <meta name="twitter:description" content="Programming Notes">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/fb124559c5114bf58b5a6f14841b36c3?s=640">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://weihanchen.github.io/css/style-fpbzgxsy0kgmdvyrj5ykkg6ratccrk3gocmaqn4xpcjywmv5dteilzucro4f.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="1">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://weihanchen.github.io/">My Programming Notes</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://weihanchen.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/fb124559c5114bf58b5a6f14841b36c3?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="1">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://weihanchen.github.io/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/fb124559c5114bf58b5a6f14841b36c3?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">weihanchen</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://weihanchen.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://weihanchen.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://weihanchen.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://weihanchen.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://weihanchen.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/weihanchen" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+        
+
+      
+      <div id="main" data-behavior="1"
+        class="
+               hasCoverMetaIn
+               ">
+        
+          <section class="postShorten-group main-content-wrap">
+            
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://weihanchen.github.io/2018/04/day1/">
+          Day1
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-04-20T17:04:26&#43;08:00">
+        
+  April 20, 2018
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://weihanchen.github.io/categories/tensorflow">tensorflow</a>
+    
+  
+
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      <p>Start with Tensorflow Day1</p>
+      <p>
+        <a href="https://weihanchen.github.io/2018/04/day1/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+            
+
+          </section>
+        
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 weihanchen. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/fb124559c5114bf58b5a6f14841b36c3?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">weihanchen</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Software Developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Taiwan
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/exportimport-%E6%A8%A1%E7%B5%84/">
+                <h3 class="media-heading">Export、Import 模組</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>撰寫中&hellip;</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/post/">
+                <h3 class="media-heading">Posts</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/%E7%89%A9%E4%BB%B6%E7%9A%84%E8%AA%9E%E6%B3%95%E7%B3%96/">
+                <h3 class="media-heading">物件的語法糖</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/set%E7%89%A9%E4%BB%B6/">
+                <h3 class="media-heading">Set物件</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/%E6%93%B4%E5%B1%95%E9%81%8B%E7%AE%97%E5%AD%90-spread-operator/">
+                <h3 class="media-heading">擴展運算子 Spread Operator</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/%E6%A8%A3%E6%9D%BF%E5%AD%97%E4%B8%B2-string-template/">
+                <h3 class="media-heading">樣板字串 String Template</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC-destructuring-assignment/">
+                <h3 class="media-heading">解構賦值 Destructuring Assignment</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/nodejs-cluster/">
+                <h3 class="media-heading">Nodejs Cluster</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/nodejs-worker-threads/">
+                <h3 class="media-heading">Nodejs worker threads</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2018/06/unsupervised_word/">
+                <h3 class="media-heading">Unsupervised_word</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jun 6, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">現新詞的傳統作法通常先對本文進行分詞，然後剩餘未成功匹配的片斷便被視為新詞，但是設想一個問題，當詞庫內原本並無新詞的存在又如何信任此結果？ 因此假若統計時能夠基於原始文本並根據詞的共同特徵進行新詞探索(無監督)，然後再與詞庫進行比較，這樣變能更準確的找出新詞，以下便介紹統計的相關算法。
+算法及步驟  假設文本為: 吃葡萄不吐葡萄皮不吃葡萄倒吐葡萄皮 統計詞頻: 假設我們將一段文字根據window size來切割便能統計出詞，假設window size為5  吃(2) 吃葡(2) 吃葡萄(2) 吃葡萄不(1) 吃葡萄不吐(1) 葡(4) 葡萄(4) 葡萄不(1) 葡萄不吐(1) 葡萄不吐葡(1) 萄(4) 萄不(1) 內部凝固度(cohesiveStrength): 一般來說我們會將統計詞的頻數，並設定門檻值，高於門檻值便被視為新詞，但基於詞頻仍然不夠，例如看電影出現了501次，電影院出現了175次，雖然看電影出現的次數較多但是直覺上&quot;電影院&quot;更加凝固一些,經由統計也能得出此結果, 以下範例則以吃葡萄不吐葡萄皮不吃葡萄倒吐葡萄皮來進行推演。  首先我們計算出概率
+吃(2/17) 吃葡(2/17) 吃葡萄(2/17) 吃葡萄不(1/17) 吃葡萄不吐(1/17) 葡(4/17) 葡萄(4/17) 葡萄不(1/17) 葡萄不吐(1/17) 葡萄不吐葡(1/17) 萄(4/17) 萄不(1/17) 假設計算&quot;葡萄&quot;的凝固度我們可以分為左右兩邊來進行觀察
+吃葡萄(2/17) = 0.11764705882352941 左：（吃葡萄) / (吃 * 葡萄) 吃(2/17) * 葡萄(4/17) = 0.02768166089965398 lfProb = 0.11764705882352941(吃葡萄) / 0.02768166089965398(吃 * 葡萄) = 4.25 右: （吃葡萄) / (吃葡 * 萄) 吃葡(2/17) * 萄(4/17) = 0.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         22 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://weihanchen.github.io/images/cover.png');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-IFHWFEbU2/+wNycDECKgjIRSirRNIDp2acEB5fvdVRU=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js" integrity="sha256-+mpyNVJsNt4rVXCw0F+pAOiB3YxmHgrbJsx4ecPuUaI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js" integrity="sha256-vMxgR/7FtLovVA+IPrR7+xTgIgARH7y9VZQnmmi0HDI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js" integrity="sha256-N0qFUh7/9vLvia87dDndewmsgsyYoNkdA212tPc+2NI=" crossorigin="anonymous"></script>
+
+
+<script src="https://weihanchen.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+    
+  </body>
+</html>
+

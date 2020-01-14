@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>chatbot on My Programming Notes</title>
+    <link>https://weihanchen.github.io/categories/chatbot/</link>
+    <description>Recent content in chatbot on My Programming Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Mar 2017 17:09:37 +0800</lastBuildDate>
+    
+	<atom:link href="https://weihanchen.github.io/categories/chatbot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Wit.ai研究心得</title>
+      <link>https://weihanchen.github.io/2017/03/wit.ai%E7%A0%94%E7%A9%B6%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Sun, 26 Mar 2017 17:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2017/03/wit.ai%E7%A0%94%E7%A9%B6%E5%BF%83%E5%BE%97/</guid>
+      <description>&lt;p&gt;以下紀錄了實際操作&lt;a href=&#34;https://wit.ai/&#34;&gt;Wit.ai&lt;/a&gt;相關心得及操作，並延伸至nodejs api應用面，註冊及基本使用方式可以參考至&lt;a href=&#34;https://wit.ai/docs/quickstart&#34;&gt;https://wit.ai/docs/quickstart&lt;/a&gt;，以下針對重點紀錄：&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

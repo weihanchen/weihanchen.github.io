@@ -1,0 +1,741 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.62.2 with theme Tranquilpeak 0.4.1-BETA">
+    <title>Nodejs Cluster</title>
+    <meta name="author" content="weihanchen">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="https://weihanchen.github.io/favicon.png">
+    
+
+    
+    <meta name="description" content="">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Nodejs Cluster">
+    <meta property="og:url" content="/2020/01/nodejs-cluster/">
+    <meta property="og:site_name" content="My Programming Notes">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="My Programming Notes">
+    <meta name="twitter:description" content="">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/fb124559c5114bf58b5a6f14841b36c3?s=640">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://weihanchen.github.io/css/style-fpbzgxsy0kgmdvyrj5ykkg6ratccrk3gocmaqn4xpcjywmv5dteilzucro4f.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://weihanchen.github.io/">My Programming Notes</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://weihanchen.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/fb124559c5114bf58b5a6f14841b36c3?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://weihanchen.github.io/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/fb124559c5114bf58b5a6f14841b36c3?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">weihanchen</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://weihanchen.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://weihanchen.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://weihanchen.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://weihanchen.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://weihanchen.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/weihanchen" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Nodejs Cluster
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-01-12T17:09:37&#43;08:00">
+        
+  January 12, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://weihanchen.github.io/categories/nodejs">nodejs</a>
+    
+  
+
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="cluster">cluster</h1>
+<p>由於Javascript本身設計就適合於單線程的應用, 但一般後端應用程式都會支援多個服務來處理client的請求, nodejs中也提供了<code>cluster</code>模組來達成此功能。</p>
+<p>原理: <code>cluster</code>中會建立一個主程序(master)及N個子程序(worker), 並由master統一監聽客戶端的請求, 也就是說對外只有一個<code>port</code>, 並根據資源狀況分配請求給<code>worker</code>。</p>
+<h2 id="如何實做">如何實做?</h2>
+<p>根據系統的cpu數量建立N個worker來進行處理。</p>
+<pre><code>// server.js
+const cluster = require('cluster');
+const cpuNums = require('os').cpus().length;
+const http = require('http');
+if (cluster.isMaster) {
+    console.info(`cpu: ${cpuNums}`);
+    for (var i = 0; i &lt; cpuNums; i++) {
+        cluster.fork();
+    }
+} else {
+    http.createServer(function(req, res) {
+        res.end(`response from worker ${process.pid}`);
+    }).listen(5555);
+    console.log(`Worker ${process.pid} started`);
+}
+</code></pre>
+<p>建立測試腳本</p>
+<pre><code>for ((i = 1; i &lt;= 8; i++)); do
+    curl http://127.0.0.1:5555
+    echo &quot;&quot;
+done
+</code></pre>
+<p>輸出如下, 可以看到response來自不同的worker:</p>
+<pre><code>response from worker 7872
+response from worker 7878
+response from worker 7886
+response from worker 7893
+response from worker 7853
+response from worker 7860
+response from worker 7855
+response from worker 7866
+</code></pre>
+<h2 id="masterworker如何通訊">master、worker如何通訊?</h2>
+<p>master透過<code>cluster.fork()</code>來建立worker。</p>
+<p><code>cluster.fork()</code>內部是藉由<code>child_process.fork()</code>來建立。</p>
+<h2 id="如何將請求分發到多個worker">如何將請求分發到多個worker</h2>
+<p>每個worker建立時都會於master上註冊並建立IPC通道, 而客戶端請求到達時, master會負責將請求分配給worker。</p>
+<p>這裡可能會有疑問是這些請求是如何被分配的?採取什麼策略?</p>
+<p>預設的分配策略是輪詢的方式, 當請求到達時, master會輪詢一遍worker列表, 看誰有空閒就將請求分配給該worker進行處理。</p>
+<p>另外也支援<code>無分配策略</code>但這種方式可能會造成搶食現象的競爭問題。</p>
+<p>可以透過環境變數<code>NODE_CLUSTER_SCHED_POLICY</code>設定, 也可以在<code>cluster.setupMaster(options)</code>時傳入。</p>
+<h2 id="process之間的通訊">process之間的通訊</h2>
+<p>由於各個process無法共享資源, 但可以藉由IPC通訊方式讓master與worker之間進行通信, 基本用法如下:</p>
+<pre><code>// worker 發送訊息
+process.send('讀取訊息');
+
+// master 接收消息 -&gt; 處理 -&gt; 回應
+cluster.on('online', function (worker) {
+     // worker建立時，開始監聽message事件
+     cluster.workers[id].on('message', function(data) {
+          // 處理來自worker發送的資料
+          // 回傳給worker
+          cluster.workers[id].send('result')
+     });
+});</code></pre>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://weihanchen.github.io/2020/01/%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC-destructuring-assignment/" data-tooltip="解構賦值 Destructuring Assignment">
+              
+                <i class="fa fa-angle-left"></i>
+                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+              </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://weihanchen.github.io/2020/01/nodejs-worker-threads/" data-tooltip="Nodejs worker threads">
+              
+                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </li>
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://weihanchen.github.io/2020/01/nodejs-cluster/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://weihanchen.github.io/2020/01/nodejs-cluster/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 weihanchen. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://weihanchen.github.io/2020/01/%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC-destructuring-assignment/" data-tooltip="解構賦值 Destructuring Assignment">
+              
+                <i class="fa fa-angle-left"></i>
+                <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+              </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://weihanchen.github.io/2020/01/nodejs-worker-threads/" data-tooltip="Nodejs worker threads">
+              
+                <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </li>
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://weihanchen.github.io/2020/01/nodejs-cluster/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://weihanchen.github.io/2020/01/nodejs-cluster/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fweihanchen.github.io%2F2020%2F01%2Fnodejs-cluster%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fweihanchen.github.io%2F2020%2F01%2Fnodejs-cluster%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/fb124559c5114bf58b5a6f14841b36c3?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">weihanchen</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Software Developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Taiwan
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/exportimport-%E6%A8%A1%E7%B5%84/">
+                <h3 class="media-heading">Export、Import 模組</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>撰寫中&hellip;</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/post/">
+                <h3 class="media-heading">Posts</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/%E7%89%A9%E4%BB%B6%E7%9A%84%E8%AA%9E%E6%B3%95%E7%B3%96/">
+                <h3 class="media-heading">物件的語法糖</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/set%E7%89%A9%E4%BB%B6/">
+                <h3 class="media-heading">Set物件</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/%E6%93%B4%E5%B1%95%E9%81%8B%E7%AE%97%E5%AD%90-spread-operator/">
+                <h3 class="media-heading">擴展運算子 Spread Operator</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/%E6%A8%A3%E6%9D%BF%E5%AD%97%E4%B8%B2-string-template/">
+                <h3 class="media-heading">樣板字串 String Template</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC-destructuring-assignment/">
+                <h3 class="media-heading">解構賦值 Destructuring Assignment</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/nodejs-cluster/">
+                <h3 class="media-heading">Nodejs Cluster</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2020/01/nodejs-worker-threads/">
+                <h3 class="media-heading">Nodejs worker threads</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://weihanchen.github.io/2018/06/unsupervised_word/">
+                <h3 class="media-heading">Unsupervised_word</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jun 6, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">現新詞的傳統作法通常先對本文進行分詞，然後剩餘未成功匹配的片斷便被視為新詞，但是設想一個問題，當詞庫內原本並無新詞的存在又如何信任此結果？ 因此假若統計時能夠基於原始文本並根據詞的共同特徵進行新詞探索(無監督)，然後再與詞庫進行比較，這樣變能更準確的找出新詞，以下便介紹統計的相關算法。
+算法及步驟  假設文本為: 吃葡萄不吐葡萄皮不吃葡萄倒吐葡萄皮 統計詞頻: 假設我們將一段文字根據window size來切割便能統計出詞，假設window size為5  吃(2) 吃葡(2) 吃葡萄(2) 吃葡萄不(1) 吃葡萄不吐(1) 葡(4) 葡萄(4) 葡萄不(1) 葡萄不吐(1) 葡萄不吐葡(1) 萄(4) 萄不(1) 內部凝固度(cohesiveStrength): 一般來說我們會將統計詞的頻數，並設定門檻值，高於門檻值便被視為新詞，但基於詞頻仍然不夠，例如看電影出現了501次，電影院出現了175次，雖然看電影出現的次數較多但是直覺上&quot;電影院&quot;更加凝固一些,經由統計也能得出此結果, 以下範例則以吃葡萄不吐葡萄皮不吃葡萄倒吐葡萄皮來進行推演。  首先我們計算出概率
+吃(2/17) 吃葡(2/17) 吃葡萄(2/17) 吃葡萄不(1/17) 吃葡萄不吐(1/17) 葡(4/17) 葡萄(4/17) 葡萄不(1/17) 葡萄不吐(1/17) 葡萄不吐葡(1/17) 萄(4/17) 萄不(1/17) 假設計算&quot;葡萄&quot;的凝固度我們可以分為左右兩邊來進行觀察
+吃葡萄(2/17) = 0.11764705882352941 左：（吃葡萄) / (吃 * 葡萄) 吃(2/17) * 葡萄(4/17) = 0.02768166089965398 lfProb = 0.11764705882352941(吃葡萄) / 0.02768166089965398(吃 * 葡萄) = 4.25 右: （吃葡萄) / (吃葡 * 萄) 吃葡(2/17) * 萄(4/17) = 0.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         22 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://weihanchen.github.io/images/cover.png');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha256-IFHWFEbU2/+wNycDECKgjIRSirRNIDp2acEB5fvdVRU=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js" integrity="sha256-+mpyNVJsNt4rVXCw0F+pAOiB3YxmHgrbJsx4ecPuUaI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js" integrity="sha256-vMxgR/7FtLovVA+IPrR7+xTgIgARH7y9VZQnmmi0HDI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js" integrity="sha256-N0qFUh7/9vLvia87dDndewmsgsyYoNkdA212tPc+2NI=" crossorigin="anonymous"></script>
+
+
+<script src="https://weihanchen.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/weihanchen.github.io\/2020\/01\/nodejs-cluster\/';
+          
+            this.page.identifier = '\/2020\/01\/nodejs-cluster\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'weihanchen';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+

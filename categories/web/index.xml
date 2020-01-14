@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>web on My Programming Notes</title>
+    <link>https://weihanchen.github.io/categories/web/</link>
+    <description>Recent content in web on My Programming Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 02 Apr 2017 17:09:37 +0800</lastBuildDate>
+    
+	<atom:link href="https://weihanchen.github.io/categories/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>REST API Design</title>
+      <link>https://weihanchen.github.io/2017/04/rest-api-design/</link>
+      <pubDate>Sun, 02 Apr 2017 17:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2017/04/rest-api-design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Service Workers</title>
+      <link>https://weihanchen.github.io/2017/04/service-workers/</link>
+      <pubDate>Sat, 01 Apr 2017 17:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2017/04/service-workers/</guid>
+      <description>&lt;p&gt;Service worker與Web workers相同，也都是一段運行在瀏覽器後台的腳本，提供一些不需要與頁面直接交互的功能(操作dom)，主要處理網路相關的問題，可以攔截網路請求進行相對應的優化動作，我們把它想像成與伺服器之間的代理服務器可能會比較容易理解，當網路環境不佳時便回應快取資源，待網路順暢後同步最新資料，因此能提高更好的離線體驗，我們可能會想說為什麼有了Web workers、AppCache這類的API還需要Service worker呢?因為這些既有的功能主要都由我們自己去handle一些細緻的操作，過程非常繁瑣，因此發展出Service worker，背後幫我們解決掉許多事情(error handler、http request  listener&amp;hellip;)&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Web Workers</title>
+      <link>https://weihanchen.github.io/2017/04/web-workers/</link>
+      <pubDate>Sat, 01 Apr 2017 17:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2017/04/web-workers/</guid>
+      <description>&lt;p&gt;Web Workers主要提供簡單的API讓網頁在背景執行緒中執行程式而不干擾使用者的操作&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My Programming Notes</title>
+    <link>https://weihanchen.github.io/</link>
+    <description>Recent content on My Programming Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Jan 2020 20:09:37 +0800</lastBuildDate>
+    
+	<atom:link href="https://weihanchen.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Export、Import 模組</title>
+      <link>https://weihanchen.github.io/2020/01/exportimport-%E6%A8%A1%E7%B5%84/</link>
+      <pubDate>Sun, 12 Jan 2020 20:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2020/01/exportimport-%E6%A8%A1%E7%B5%84/</guid>
+      <description>&lt;p&gt;撰寫中&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>物件的語法糖</title>
+      <link>https://weihanchen.github.io/2020/01/%E7%89%A9%E4%BB%B6%E7%9A%84%E8%AA%9E%E6%B3%95%E7%B3%96/</link>
+      <pubDate>Sun, 12 Jan 2020 20:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2020/01/%E7%89%A9%E4%BB%B6%E7%9A%84%E8%AA%9E%E6%B3%95%E7%B3%96/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Set物件</title>
+      <link>https://weihanchen.github.io/2020/01/set%E7%89%A9%E4%BB%B6/</link>
+      <pubDate>Sun, 12 Jan 2020 19:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2020/01/set%E7%89%A9%E4%BB%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>擴展運算子 Spread Operator</title>
+      <link>https://weihanchen.github.io/2020/01/%E6%93%B4%E5%B1%95%E9%81%8B%E7%AE%97%E5%AD%90-spread-operator/</link>
+      <pubDate>Sun, 12 Jan 2020 19:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2020/01/%E6%93%B4%E5%B1%95%E9%81%8B%E7%AE%97%E5%AD%90-spread-operator/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>樣板字串 String Template</title>
+      <link>https://weihanchen.github.io/2020/01/%E6%A8%A3%E6%9D%BF%E5%AD%97%E4%B8%B2-string-template/</link>
+      <pubDate>Sun, 12 Jan 2020 19:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2020/01/%E6%A8%A3%E6%9D%BF%E5%AD%97%E4%B8%B2-string-template/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>解構賦值 Destructuring Assignment</title>
+      <link>https://weihanchen.github.io/2020/01/%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC-destructuring-assignment/</link>
+      <pubDate>Sun, 12 Jan 2020 18:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2020/01/%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC-destructuring-assignment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nodejs Cluster</title>
+      <link>https://weihanchen.github.io/2020/01/nodejs-cluster/</link>
+      <pubDate>Sun, 12 Jan 2020 17:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2020/01/nodejs-cluster/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nodejs worker threads</title>
+      <link>https://weihanchen.github.io/2020/01/nodejs-worker-threads/</link>
+      <pubDate>Sun, 12 Jan 2020 15:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2020/01/nodejs-worker-threads/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Unsupervised_word</title>
+      <link>https://weihanchen.github.io/2018/06/unsupervised_word/</link>
+      <pubDate>Wed, 13 Jun 2018 12:04:13 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2018/06/unsupervised_word/</guid>
+      <description>現新詞的傳統作法通常先對本文進行分詞，然後剩餘未成功匹配的片斷便被視為新詞，但是設想一個問題，當詞庫內原本並無新詞的存在又如何信任此結果？ 因此假若統計時能夠基於原始文本並根據詞的共同特徵進行新詞探索(無監督)，然後再與詞庫進行比較，這樣變能更準確的找出新詞，以下便介紹統計的相關算法。
+算法及步驟  假設文本為: 吃葡萄不吐葡萄皮不吃葡萄倒吐葡萄皮 統計詞頻: 假設我們將一段文字根據window size來切割便能統計出詞，假設window size為5  吃(2) 吃葡(2) 吃葡萄(2) 吃葡萄不(1) 吃葡萄不吐(1) 葡(4) 葡萄(4) 葡萄不(1) 葡萄不吐(1) 葡萄不吐葡(1) 萄(4) 萄不(1) 內部凝固度(cohesiveStrength): 一般來說我們會將統計詞的頻數，並設定門檻值，高於門檻值便被視為新詞，但基於詞頻仍然不夠，例如看電影出現了501次，電影院出現了175次，雖然看電影出現的次數較多但是直覺上&amp;quot;電影院&amp;quot;更加凝固一些,經由統計也能得出此結果, 以下範例則以吃葡萄不吐葡萄皮不吃葡萄倒吐葡萄皮來進行推演。  首先我們計算出概率
+吃(2/17) 吃葡(2/17) 吃葡萄(2/17) 吃葡萄不(1/17) 吃葡萄不吐(1/17) 葡(4/17) 葡萄(4/17) 葡萄不(1/17) 葡萄不吐(1/17) 葡萄不吐葡(1/17) 萄(4/17) 萄不(1/17) 假設計算&amp;quot;葡萄&amp;quot;的凝固度我們可以分為左右兩邊來進行觀察
+吃葡萄(2/17) = 0.11764705882352941 左：（吃葡萄) / (吃 * 葡萄) 吃(2/17) * 葡萄(4/17) = 0.02768166089965398 lfProb = 0.11764705882352941(吃葡萄) / 0.02768166089965398(吃 * 葡萄) = 4.25 右: （吃葡萄) / (吃葡 * 萄) 吃葡(2/17) * 萄(4/17) = 0.</description>
+    </item>
+    
+    <item>
+      <title>Day1</title>
+      <link>https://weihanchen.github.io/2018/04/day1/</link>
+      <pubDate>Fri, 20 Apr 2018 17:04:26 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2018/04/day1/</guid>
+      <description>&lt;p&gt;Start with Tensorflow Day1&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>OrientDB-SQL-API</title>
+      <link>https://weihanchen.github.io/2017/04/orientdb-sql-api/</link>
+      <pubDate>Wed, 05 Apr 2017 17:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2017/04/orientdb-sql-api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OrientDB-http</title>
+      <link>https://weihanchen.github.io/2017/04/orientdb-http/</link>
+      <pubDate>Mon, 03 Apr 2017 17:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2017/04/orientdb-http/</guid>
+      <description>&lt;p&gt;OrientDB除了提供相關的程式語言client library之外，向支援一般的http request，以下將記錄相關的使用方式。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>OrientDB-SQL-CRUD</title>
+      <link>https://weihanchen.github.io/2017/04/orientdb-sql-crud/</link>
+      <pubDate>Mon, 03 Apr 2017 17:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2017/04/orientdb-sql-crud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>初探Orientdb</title>
+      <link>https://weihanchen.github.io/2017/04/%E5%88%9D%E6%8E%A2orientdb/</link>
+      <pubDate>Mon, 03 Apr 2017 17:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2017/04/%E5%88%9D%E6%8E%A2orientdb/</guid>
+      <description>&lt;p&gt;初學OrientDB的一些心得記錄，並以實例來理解基礎操作&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>REST API Design</title>
+      <link>https://weihanchen.github.io/2017/04/rest-api-design/</link>
+      <pubDate>Sun, 02 Apr 2017 17:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2017/04/rest-api-design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Service Workers</title>
+      <link>https://weihanchen.github.io/2017/04/service-workers/</link>
+      <pubDate>Sat, 01 Apr 2017 17:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2017/04/service-workers/</guid>
+      <description>&lt;p&gt;Service worker與Web workers相同，也都是一段運行在瀏覽器後台的腳本，提供一些不需要與頁面直接交互的功能(操作dom)，主要處理網路相關的問題，可以攔截網路請求進行相對應的優化動作，我們把它想像成與伺服器之間的代理服務器可能會比較容易理解，當網路環境不佳時便回應快取資源，待網路順暢後同步最新資料，因此能提高更好的離線體驗，我們可能會想說為什麼有了Web workers、AppCache這類的API還需要Service worker呢?因為這些既有的功能主要都由我們自己去handle一些細緻的操作，過程非常繁瑣，因此發展出Service worker，背後幫我們解決掉許多事情(error handler、http request  listener&amp;hellip;)&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Web Workers</title>
+      <link>https://weihanchen.github.io/2017/04/web-workers/</link>
+      <pubDate>Sat, 01 Apr 2017 17:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2017/04/web-workers/</guid>
+      <description>&lt;p&gt;Web Workers主要提供簡單的API讓網頁在背景執行緒中執行程式而不干擾使用者的操作&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Javascript Design Pattern Module</title>
+      <link>https://weihanchen.github.io/2017/03/javascript-design-pattern-module/</link>
+      <pubDate>Thu, 30 Mar 2017 17:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2017/03/javascript-design-pattern-module/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript Design Pattern Factory</title>
+      <link>https://weihanchen.github.io/2017/03/javascript-design-pattern-factory/</link>
+      <pubDate>Wed, 29 Mar 2017 17:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2017/03/javascript-design-pattern-factory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript Design Pattern Builder</title>
+      <link>https://weihanchen.github.io/2017/03/javascript-design-pattern-builder/</link>
+      <pubDate>Tue, 28 Mar 2017 17:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2017/03/javascript-design-pattern-builder/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wit.ai研究心得</title>
+      <link>https://weihanchen.github.io/2017/03/wit.ai%E7%A0%94%E7%A9%B6%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Sun, 26 Mar 2017 17:09:37 +0800</pubDate>
+      
+      <guid>https://weihanchen.github.io/2017/03/wit.ai%E7%A0%94%E7%A9%B6%E5%BF%83%E5%BE%97/</guid>
+      <description>&lt;p&gt;以下紀錄了實際操作&lt;a href=&#34;https://wit.ai/&#34;&gt;Wit.ai&lt;/a&gt;相關心得及操作，並延伸至nodejs api應用面，註冊及基本使用方式可以參考至&lt;a href=&#34;https://wit.ai/docs/quickstart&#34;&gt;https://wit.ai/docs/quickstart&lt;/a&gt;，以下針對重點紀錄：&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

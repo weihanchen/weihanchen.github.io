@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://weihanchen.github.io/categories/</loc>
+    <lastmod>2020-01-12T20:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/categories/es6/</loc>
+    <lastmod>2020-01-12T20:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/2020/01/exportimport-%E6%A8%A1%E7%B5%84/</loc>
+    <lastmod>2020-01-12T20:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/</loc>
+    <lastmod>2020-01-12T20:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/post/</loc>
+    <lastmod>2020-01-12T20:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/2020/01/%E7%89%A9%E4%BB%B6%E7%9A%84%E8%AA%9E%E6%B3%95%E7%B3%96/</loc>
+    <lastmod>2020-01-12T20:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/2020/01/set%E7%89%A9%E4%BB%B6/</loc>
+    <lastmod>2020-01-12T19:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/2020/01/%E6%93%B4%E5%B1%95%E9%81%8B%E7%AE%97%E5%AD%90-spread-operator/</loc>
+    <lastmod>2020-01-12T19:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/2020/01/%E6%A8%A3%E6%9D%BF%E5%AD%97%E4%B8%B2-string-template/</loc>
+    <lastmod>2020-01-12T19:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/2020/01/%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC-destructuring-assignment/</loc>
+    <lastmod>2020-01-12T18:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/categories/nodejs/</loc>
+    <lastmod>2020-01-12T17:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/2020/01/nodejs-cluster/</loc>
+    <lastmod>2020-01-12T17:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/2020/01/nodejs-worker-threads/</loc>
+    <lastmod>2020-01-12T15:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/categories/nlp/</loc>
+    <lastmod>2018-06-13T12:04:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/2018/06/unsupervised_word/</loc>
+    <lastmod>2018-06-13T12:04:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/2018/04/day1/</loc>
+    <lastmod>2018-04-20T17:04:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/categories/tensorflow/</loc>
+    <lastmod>2018-04-20T17:04:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/categories/orientdb/</loc>
+    <lastmod>2017-04-05T17:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/2017/04/orientdb-sql-api/</loc>
+    <lastmod>2017-04-05T17:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/2017/04/orientdb-http/</loc>
+    <lastmod>2017-04-03T17:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/2017/04/orientdb-sql-crud/</loc>
+    <lastmod>2017-04-03T17:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/2017/04/%E5%88%9D%E6%8E%A2orientdb/</loc>
+    <lastmod>2017-04-03T17:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/2017/04/rest-api-design/</loc>
+    <lastmod>2017-04-02T17:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/categories/web/</loc>
+    <lastmod>2017-04-02T17:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/2017/04/service-workers/</loc>
+    <lastmod>2017-04-01T17:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/2017/04/web-workers/</loc>
+    <lastmod>2017-04-01T17:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/2017/03/javascript-design-pattern-module/</loc>
+    <lastmod>2017-03-30T17:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/2017/03/javascript-design-pattern-factory/</loc>
+    <lastmod>2017-03-29T17:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/2017/03/javascript-design-pattern-builder/</loc>
+    <lastmod>2017-03-28T17:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/categories/chatbot/</loc>
+    <lastmod>2017-03-26T17:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/2017/03/wit.ai%E7%A0%94%E7%A9%B6%E5%BF%83%E5%BE%97/</loc>
+    <lastmod>2017-03-26T17:09:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/archives/</loc>
+  </url>
+  
+  <url>
+    <loc>https://weihanchen.github.io/tags/</loc>
+  </url>
+  
+</urlset>
