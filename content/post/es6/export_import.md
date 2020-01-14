@@ -40,4 +40,22 @@ console.log(p.Person);
 console.log(p.strTest);
 ```
 
-## `export default`輸入與輸出
+## 關於`export default`的輸入與輸出
+* 主要是作為一個js檔案的唯一輸出口。
+* 輸入時可以指定任意名稱。
+* 可以隱藏內部的細節。
+* 輸入與輸出都不必加上`{}`了。
+* 一個模組(檔案)只能有一個輸出。
+
+```javascript
+// 檔名: export.js
+class Person {
+    private name;
+    constructor() {}
+}
+
+export default Person;
+
+// 輸入時
+import P from './export';
+```
